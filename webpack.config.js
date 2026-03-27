@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <title>pokeflix</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav
+        class="
+          navbar navbar-expand-md navbar-light
+          bg-light
+          rounded-pill
+          mt-3
+          px-4 px-md-1
+        "
+      >
+        <a
+          class="
+            navbar-brand
+            d-flex
+            flex-row
+            align-items-center
+            justify-content-around
+          "
+          href="#"
+        >
+          <span class="text-secondary fs-3 align-middle logo-text"
+            >Pokeflix</span
+          >
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="d-flex flex-row nav nav-right ms-md-1">
+            <li class="nav-item">
+              <a
+                class="nav-link link-secondary fs-5"
+                aria-current="page"
+                href="#"
+                >Evolutions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link link-secondary fs-5"
+                aria-current="page"
+                href="#"
+                >Planets</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link link-secondary fs-5"
+                aria-current="page"
+                href="#"
+                >Races</a
+              >
+            </li>
+            <li class="nav-item poke-counter">
+              <span class="nav-link link-secondary fs-5" id="pokeCounter">
+              </span>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section class="main">
+        <h1 class="d-none">Pokemons Section</h1>
+        <div
+          class="spinner-border main-spinner text-secondary"
+          id="spinner"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="pokemons"></div>
+
+        <section class="footer rounded-pill bg-light" id="footer">
+          <h2 class="d-none">Footer Section</h2>
+          <div>
+            <span class="">Created By Amal and Miguel Under CC license</span>
+          </div>
+        </section>
+      </section>
+
+      <section
+        class="bg-popup modal fade"
+        role="dialog"
+        id="mainPopup"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-scrollable">
+          <div class="pop-up modal-content">
+            <div class="modal-header">
+              <h5
+                class="modal-title fs-3 text-capitalize text-center fw-bold"
+                id="modalTitle"
+              >
+                placeholder
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+
+            <div class="modal-body p-3 d-flex flex-column align-items-center">
+              <div id="images"></div>
+              <div class="row w-100">
+                <div id="detail" class="col-md-6 mt-3 mb-2 p-3 fw-bold"></div>
+                <div id="detail2" class="col-md-6 mt-3 mb-2 p-3 fw-bold"></div>
+              </div>
+              <div id="comments-table-wrapper">
+                <h3 class="mb-3 text-center">
+                  Comments (<span id="comments-count"></span>)
+                </h3>
+                <div id="commentSection"></div>
+              </div>
+              <p class="user_comments"></p>
+
+              <form class="form" id="comForm">
+                <h2 class="comments">Add Your comments:</h2>
+                <small id="valErr" class="text-danger"></small>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Name"
+                  required
+                />
+                <input
+                  type="text"
+                  id="comments"
+                  placeholder="comments"
+                  required
+                />
+                <div>
+                  <input type="submit" value="comment" id="submit" />
+                  <div
+                    class="
+                      spinner-border spinner-border-sm
+                      text-primary
+                      ms-3
+                      d-none
+                    "
+                    id="spinnerCom"
+                    role="status"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
